@@ -76,12 +76,7 @@
               </form> 
     </section>
 <script>
-  $(function () {
-  $.validator.setDefaults({
-    submitHandler: function () {
-      alert( "Form successful submitted!" );
-    }
-  });
+  $(function () { 
   $('#quickForm').validate({
     rules: {
       email: {
@@ -93,7 +88,7 @@
         minlength: 3
       },
       nama_lengkap:{
-        required: true
+        required: true,
       },
       alamat:{
         required: true

@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Models\JabatanModel;
 
-class Jabatan extends Controller 
+class Jabatan extends Controller
 {
-    //
     public function __construct(){
         $this->JabatanModel = new JabatanModel(); 
     }
@@ -21,26 +21,21 @@ class Jabatan extends Controller
 
      
     public function create()
-    { 
-        return view('pegawai_create');
+    {  
+        return view('jabatan_create');
     } 
     
      
     public function store(Request $request)
-    {  
+    {   
         $data = [
-            'kode_pegawai' => Request()->kode_pegawai,
-            'nama_lengkap' => Request()->nama_lengkap,
-            'tempat_lahir' => Request()->tempat_lahir,
-            'tanggal_lahir' => Request()->tanggal_lahir,
-            'jenkel' => Request()->jenkel,
-            'no_hp' => Request()->no_hp,
-            'email' => Request()->email,
-            'alamat' => Request()->alamat,
-            'id_jabatan' => Request()->id_jabatan
+            'kode_Jabatan' => Request()->kode_jabatan,
+            'nama_jabatan' => Request()->nama_jabatan,
+            'gaji_pokok' => Request()->gaji_pokok,
+            'gaji_lembur' => Request()->gaji_lembur
         ];
 
-        $this->PegawaiModel->savedata($data);
+        $this->JabatanModel->savedata($data);
         return redirect()->route('jabatan')->with('pesan','Data Berhasil Ditambahkan!'); 
        
     }
@@ -53,19 +48,30 @@ class Jabatan extends Controller
 
     
     public function edit($id)
-    {
-        
+    { 
+        $data = array('listing'=>$this->JabatanModel->getData($id));
+        return view('jabatan_edit',$data);
     }
 
      
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-         
+        $data = [
+            'kode_Jabatan' => Request()->kode_jabatan,
+            'nama_jabatan' => Request()->nama_jabatan,
+            'gaji_pokok' => Request()->gaji_pokok,
+            'gaji_lembur' => Request()->gaji_lembur
+        ];
+
+        $id = Request()->id;
+        $this->JabatanModel->updateData($data,$id); 
+        return redirect()->route('jabatan')->with('pesan','Data Berhasil Dirubah!');
     }
 
    
     public function destroy($id)
     {
-       
+        $this->JabatanModel->deleteData($id);
+        return redirect()->route('jabatan')->with('pesan','Data Berhasil Dihapus!');
     }
 }
