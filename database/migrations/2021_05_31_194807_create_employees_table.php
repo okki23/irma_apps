@@ -13,9 +13,17 @@ class CreateEmployeesTable extends Migration
      */
     public function up()
     {
-        Schema::create('employees', function (Blueprint $table) {
+        Schema::create('pegawai', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('kode_pegawai')->nullable();
+            $table->string('nama_lengkap')->nullable();
+            $table->string('tempat_lahir')->nullable();
+            $table->date('tanggal_lahir')->nullable();
+            $table->string('jenkel')->nullable();
+            $table->bigInteger('no_hp')->nullable();
+            $table->string('email')->nullable();
+            $table->string('alamat')->nullable();
+            $table->integer('id_jabatan')->nullable(); 
         });
     }
 
