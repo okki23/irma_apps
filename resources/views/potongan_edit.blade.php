@@ -1,6 +1,6 @@
 @extends('layout.template')
 @section('header')
-<h1><b>Tunjangan</b></h1>
+<h1><b>Potongan</b></h1>
 @endsection
 @section('content')  
 <section class="content">
@@ -11,24 +11,24 @@
             <!-- jquery validation -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title"> Form Update Data tunjangan</h3>
+                <h3 class="card-title"> Form Update Data Potongan</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form id="quickForm" method="POST" action="/tunjangan/update" novalidate="novalidate"> 
+              <form id="quickForm" method="POST" action="/potongan/update" novalidate="novalidate"> 
               @csrf
               <div class="card-body">
                   <div class="row">
                     <div class="col-md-6">
 
                         <div class="form-group"> 
-                          <label>Kode tunjangan</label> 
+                          <label>Kode potongan</label> 
                           <input type="hidden" name="id" value="{{ $listing->id }} ">
-                          <input type="text" name="kode_tunjangan" class="form-control" id="kode_tunjangan" value=" {{ $listing->kode_tunjangan }}">
+                          <input type="text" name="kode_potongan" class="form-control" id="kode_potongan" value=" {{ $listing->kode_potongan }}">
                         </div>
                         <div class="form-group">
-                          <label>Nama tunjangan</label> 
-                          <input type="text" name="nama_tunjangan" class="form-control" id="nama_tunjangan" value=" {{ $listing->nama_tunjangan }}">
+                          <label>Nama potongan</label> 
+                          <input type="text" name="nama_potongan" class="form-control" id="nama_potongan" value=" {{ $listing->nama_potongan }}">
                         </div>   
                         
                       </div>
@@ -50,10 +50,10 @@
  
   $('#quickForm').validate({
     rules: { 
-      kode_tunjangan:{
+      kode_potongan:{
         required: true
       },
-      nama_tunjangan:{
+      nama_potongan:{
         required: true
       },
       nominal:{

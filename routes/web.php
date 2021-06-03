@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Pegawai;
 use App\Http\Controllers\Jabatan;
 use App\Http\Controllers\Tunjangan;
+use App\Http\Controllers\Potongan;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -38,5 +39,12 @@ Route::get('/tunjangan/create',[Tunjangan::class,'create'])->name('tunjangan_cre
 Route::post('/tunjangan/store',[Tunjangan::class,'store'])->name('tunjangan_store'); 
 Route::get('/tunjangan/edit/{id}',[Tunjangan::class,'edit'])->name('tunjangan_edit'); 
 Route::post('/tunjangan/update',[Tunjangan::class,'update'])->name('tunjangan_update');
-Route::get('/tunjangan/destroy/{id}',[Tunjangan::class,'destroy'])->name('tunjangan_delete'); 
+Route::get('/tunjangan/destroy/{id}',[Tunjangan::class,'destroy'])->name('tunjangan_delete');
+
+Route::get('/potongan',[Potongan::class,'index'])->name('potongan'); 
+Route::get('/potongan/create',[Potongan::class,'create'])->name('potongan_create'); 
+Route::post('/potongan/store',[Potongan::class,'store'])->name('potongan_store'); 
+Route::get('/potongan/edit/{id}',[Potongan::class,'edit'])->name('potongan_edit'); 
+Route::post('/potongan/update',[Potongan::class,'update'])->name('potongan__update');
+Route::get('/potongan/destroy/{id}',[Potongan::class,'destroy'])->name('potongan_delete');
 
