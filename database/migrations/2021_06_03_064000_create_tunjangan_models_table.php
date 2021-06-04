@@ -28,6 +28,6 @@ class CreateTunjanganModelsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tunjangan_models');
+        Schema::dropIfExists('tunjangan');
     }
 }

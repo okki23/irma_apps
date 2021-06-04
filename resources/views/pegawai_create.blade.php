@@ -34,14 +34,14 @@
                         </div> 
                         <div class="form-group">
                           <label>Jenis Kelamin</label> 
-                        <div class="custom-control custom-radio">
-                          <input class="custom-control-input" type="radio" id="customRadio1" name="jenkel" value="L">
-                          <label for="customRadio1" class="custom-control-label">Laki-Laki</label>
-                        </div>
-                        <div class="custom-control custom-radio">
-                          <input class="custom-control-input" type="radio" id="customRadio2" name="jenkel" value="P" checked="">
-                          <label for="customRadio2" class="custom-control-label">Perempuan</label>
-                        </div>
+                          <div class="custom-control custom-radio">
+                            <input class="custom-control-input" type="radio" id="customRadio1" name="jenkel" value="L">
+                            <label for="customRadio1" class="custom-control-label">Laki-Laki</label>
+                          </div>
+                          <div class="custom-control custom-radio">
+                            <input class="custom-control-input" type="radio" id="customRadio2" name="jenkel" value="P" checked="">
+                            <label for="customRadio2" class="custom-control-label">Perempuan</label>
+                          </div>
                         <br> 
                         <div class="form-group">
                           <label>No HP</label> 

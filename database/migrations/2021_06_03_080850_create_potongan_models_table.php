@@ -28,6 +28,6 @@ class CreatePotonganModelsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('potongan_models');
+        Schema::dropIfExists('potongan');
     }
 }

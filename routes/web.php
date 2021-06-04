@@ -5,6 +5,9 @@ use App\Http\Controllers\Pegawai;
 use App\Http\Controllers\Jabatan;
 use App\Http\Controllers\Tunjangan;
 use App\Http\Controllers\Potongan;
+use App\Http\Controllers\Pengguna;
+use App\Http\Controllers\Akun;
+use App\Http\Controllers\RekapAbsen;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -47,4 +50,25 @@ Route::post('/potongan/store',[Potongan::class,'store'])->name('potongan_store')
 Route::get('/potongan/edit/{id}',[Potongan::class,'edit'])->name('potongan_edit'); 
 Route::post('/potongan/update',[Potongan::class,'update'])->name('potongan__update');
 Route::get('/potongan/destroy/{id}',[Potongan::class,'destroy'])->name('potongan_delete');
+
+Route::get('/pengguna',[Pengguna::class,'index'])->name('pengguna'); 
+Route::get('/pengguna/create',[Pengguna::class,'create'])->name('pengguna_create'); 
+Route::post('/pengguna/store',[Pengguna::class,'store'])->name('pengguna_store'); 
+Route::get('/pengguna/edit/{id}',[Pengguna::class,'edit'])->name('pengguna_edit'); 
+Route::post('/pengguna/update',[Pengguna::class,'update'])->name('pengguna__update');
+Route::get('/pengguna/destroy/{id}',[Pengguna::class,'destroy'])->name('pengguna_delete');
+
+Route::get('/akun',[Akun::class,'index'])->name('akun'); 
+Route::get('/akun/create',[Akun::class,'create'])->name('akun_create'); 
+Route::post('/akun/store',[Akun::class,'store'])->name('akun_store'); 
+Route::get('/akun/edit/{id}',[Akun::class,'edit'])->name('akun_edit'); 
+Route::post('/akun/update',[Akun::class,'update'])->name('akun_update');
+Route::get('/akun/destroy/{id}',[Akun::class,'destroy'])->name('akun_delete');
+
+Route::get('/rekapabsen',[RekapAbsen::class,'index'])->name('rekapabsen'); 
+Route::get('/rekapabsen/create',[RekapAbsen::class,'create'])->name('rekapabsen_create'); 
+Route::post('/rekapabsen/store',[RekapAbsen::class,'store'])->name('rekapabsen_store'); 
+Route::get('/rekapabsen/edit/{id}',[RekapAbsen::class,'edit'])->name('rekapabsen_edit'); 
+Route::post('/rekapabsen/update',[RekapAbsen::class,'update'])->name('rekapabsen_update');
+Route::get('/rekapabsen/destroy/{id}',[RekapAbsen::class,'destroy'])->name('rekapabsen_delete');
 

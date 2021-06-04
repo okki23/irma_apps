@@ -81,7 +81,7 @@
                 </a>
             </li> 
             <li class="nav-item">
-                <a href="/rekap_absen" class="nav-link {{ request()->is('rekap_absen') ? 'active': '' }}">
+                <a href="/rekapabsen" class="nav-link {{ request()->is('rekapabsen') ? 'active': '' }}">
                   <i class="nav-icon fas fa-book"></i>
                     <p>
                         Rekap Absen

@@ -73,9 +73,13 @@
                         <div class="form-group">
                           <label>Jabatan</label>  
                           <select class="form-control select2bs4" name="id_jabatan" id="id_jabatan" style="width: 100%;">
-                          <option value="1" > Manager </option>
-                          <option value="2" selected="selected"> HRD </option>
-                            
+                            @foreach($selectjabatan as $jabat)
+                              @if($jabat->id == $listing->id_jabatan)
+                                  <option value="{{ $jabat->id }}" selected >{{ $jabat->kode_jabatan.'-'.$jabat->nama_jabatan }}</option>
+                              @else
+                                  <option value="{{ $jabat->id }}"  >{{ $jabat->kode_jabatan.'-'.$jabat->nama_jabatan }}</option>
+                              @endif 
+                            @endforeach
                           </select>
                         </div>  
                     </div> 
