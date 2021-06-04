@@ -61,29 +61,17 @@
 <script>
   $(function () { 
   $('#quickForm').validate({
-    rules: {
-      email: {
-        required: true,
-        email: true,
+    rules: { 
+      kode_rekap:{
+        required: true, 
       }, 
-      kode_rekapabsen:{
-        required: true,
-        minlength: 3
-      },
-      nama_lengkap:{
-        required: true,
-      },
-      alamat:{
+      jumlah_hadir:{
         required: true
       },
-      tempat_lahir:{
-        required: true
-      },
-      no_hp:{
+      jumlah_lembur:{
         required: true
       }
-    },
-     
+    }, 
     errorElement: 'span',
     errorPlacement: function (error, element) {
       error.addClass('invalid-feedback');

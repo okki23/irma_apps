@@ -1,6 +1,6 @@
 @extends('layout.template')
 @section('header')
-<h1><b>Rekap Absen</b></h1>
+<h1><b>Jurnal</b></h1>
 @endsection
 @section('content')  
 <section class="content">
@@ -11,23 +11,22 @@
             <!-- jquery validation -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title"> Form Tambah Data Rekap Absen</h3>
+                <h3 class="card-title"> Form Tambah Data Jurnal</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form id="quickForm" method="POST" action="/rekapabsen/update" novalidate="novalidate"> 
+              <form id="quickForm" method="POST" action="/jurnal/store" novalidate="novalidate"> 
               @csrf 
               <div class="card-body">
-                  <div class="row">
+                  <div class="row"> 
                     <div class="col-md-6">  
                         <div class="form-group">
-                          <label>Kode Rekap Absen</label> 
-                          <input type="hidden" name="id" value="{{ $listing->id }}">
-                          <input type="text" name="kode_rekap" class="form-control" id="kode_rekap" value="{{ $listing->kode_rekap }}">
+                          <label>Nomor Jurnal</label> 
+                          <input type="text" name="no_jurnal" class="form-control" id="no_jurnal" placeholder="Nomor Jurnal">
                         </div>
                         <div class="form-group">
-                          <label>Tanggal Rekap</label> 
-                          <input type="text" name="tanggal_rekap" class="form-control" id="tanggal_rekap" readonly="readonly" value="{{ $listing->tanggal_rekap }}">
+                          <label>Tanggal Jurnal</label> 
+                          <input type="text" name="tanggal_jurnal" class="form-control" id="tanggal_jurnal" readonly="readonly" value="{{ date('Y-m-d') }}">
                         </div> 
                         <div class="form-group">
                           <label>Pengguna</label> 
@@ -35,26 +34,26 @@
                           <input type="hidden" name="id_pengguna" class="form-control" value="99" readonly="readonly" id="id_pengguna" >
                         </div>  
                         <div class="form-group">
-                          <label>Pegawai</label> 
-                          <select class="form-control select2bs4" name="id_pegawai" id="id_pegawai" style="width: 100%;">
-                            @foreach($selectpegawai as $pegawai)
-                              @if($pegawai->id == $listing->id_pegawai)
-                                <option value="{{ $pegawai->id }}" selected >{{ $pegawai->kode_pegawai.'-'.$pegawai->nama_lengkap }}</option>   
-                              @else
-                                <option value="{{ $pegawai->id }}" >{{ $pegawai->kode_pegawai.'-'.$pegawai->nama_lengkap }}</option>   
-                              @endif 
+                          <label>Akun</label> 
+                          <select class="form-control select2bs4" name="id_akun" id="id_akun" style="width: 100%;">
+                            @foreach($selectakun as $akun)
+                              <option value="{{ $akun->id }}" >{{ $akun->kode_akun.'-'.$akun->nama_akun }}</option>   
                             @endforeach
                           </select>
                         </div>  
                     </div> 
                     <div class="col-md-6">
                         <div class="form-group">
-                          <label>Jumlah Hadir</label> 
-                          <input type="text" name="jumlah_hadir" class="form-control" id="jumlah_hadir" value="{{ $listing->jumlah_hadir }}">
+                          <label>Keterangan</label> 
+                          <input type="text" name="keterangan" class="form-control" id="keterangan" placeholder="Keterangan">
                         </div>
                         <div class="form-group">
-                          <label>Jumlah Lembur</label> 
-                          <input type="text" name="jumlah_lembur" class="form-control" id="jumlah_lembur" value="{{ $listing->jumlah_lembur }}">
+                          <label>Debet</label> 
+                          <input type="text" name="debet" class="form-control" id="debet" placeholder="Debet">
+                        </div>
+                        <div class="form-group">
+                          <label>Kredit</label> 
+                          <input type="text" name="kredit" class="form-control" id="kredit" placeholder="Kredit">
                         </div>  
                     </div> 
                   </div> 
@@ -66,17 +65,21 @@
 <script>
   $(function () { 
   $('#quickForm').validate({
-    rules: { 
-      kode_rekap:{
+    rules: {
+      no_jurnal: {
         required: true, 
       }, 
-      jumlah_hadir:{
-        required: true
+      keterangan: {
+        required: true, 
+      }, 
+      debet:{
+        required: true,
       },
-      jumlah_lembur:{
+      kredit:{
         required: true
       }
-    }, 
+    },
+     
     errorElement: 'span',
     errorPlacement: function (error, element) {
       error.addClass('invalid-feedback');

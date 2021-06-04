@@ -8,6 +8,8 @@ use App\Http\Controllers\Potongan;
 use App\Http\Controllers\Pengguna;
 use App\Http\Controllers\Akun;
 use App\Http\Controllers\RekapAbsen;
+use App\Http\Controllers\Jurnal;
+use App\Http\Controllers\Penggajian;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -70,5 +72,22 @@ Route::get('/rekapabsen/create',[RekapAbsen::class,'create'])->name('rekapabsen_
 Route::post('/rekapabsen/store',[RekapAbsen::class,'store'])->name('rekapabsen_store'); 
 Route::get('/rekapabsen/edit/{id}',[RekapAbsen::class,'edit'])->name('rekapabsen_edit'); 
 Route::post('/rekapabsen/update',[RekapAbsen::class,'update'])->name('rekapabsen_update');
+Route::get('/rekapabsen/print/{id}',[RekapAbsen::class,'print'])->name('rekapabsen_print');
 Route::get('/rekapabsen/destroy/{id}',[RekapAbsen::class,'destroy'])->name('rekapabsen_delete');
+
+Route::get('/penggajian',[Penggajian::class,'index'])->name('penggajian'); 
+Route::get('/penggajian/create',[Penggajian::class,'create'])->name('penggajian_create'); 
+Route::post('/penggajian/store',[Penggajian::class,'store'])->name('penggajian_store'); 
+Route::get('/penggajian/edit/{id}',[Penggajian::class,'edit'])->name('penggajian_edit'); 
+Route::post('/penggajian/update',[Penggajian::class,'update'])->name('penggajian_update');
+Route::get('/penggajian/print/{id}',[Penggajian::class,'print'])->name('penggajian_print');
+Route::get('/penggajian/destroy/{id}',[Penggajian::class,'destroy'])->name('penggajian_delete');
+
+Route::get('/jurnal',[Jurnal::class,'index'])->name('jurnal'); 
+Route::get('/jurnal/create',[Jurnal::class,'create'])->name('jurnal_create'); 
+Route::post('/jurnal/store',[Jurnal::class,'store'])->name('jurnal_store'); 
+Route::get('/jurnal/edit/{id}',[Jurnal::class,'edit'])->name('jurnal_edit'); 
+Route::post('/jurnal/update',[Jurnal::class,'update'])->name('jurnal_update');
+Route::get('/jurnal/destroy/{id}',[Jurnal::class,'destroy'])->name('jurnal_delete');
+
 

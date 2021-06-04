@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\RekapAbsenModel;
+use PDF;
+
 
 class RekapAbsen extends Controller
 {
@@ -55,6 +57,17 @@ class RekapAbsen extends Controller
         $data = array('listing'=>$this->RekapAbsenModel->getData($id),
                       'selectpegawai'=>$this->RekapAbsenModel->selectpegawai());
         return view('rekap_absen_edit',$data);
+    }
+
+    public function print($id)
+    { 
+        $data = array('listing'=>$this->RekapAbsenModel->getDataPrint($id));
+        $pdf = PDF::loadView('rekap_absen_print', $data);
+ 
+        return $pdf->stream();
+
+        // $data = array('listing'=>$this->RekapAbsenModel->getDataPrint($id));
+        // return view('rekap_absen_print',$data);
     }
 
      
