@@ -10,6 +10,8 @@ use App\Http\Controllers\Akun;
 use App\Http\Controllers\RekapAbsen;
 use App\Http\Controllers\Jurnal;
 use App\Http\Controllers\Penggajian;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\HomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -90,4 +92,16 @@ Route::get('/jurnal/edit/{id}',[Jurnal::class,'edit'])->name('jurnal_edit');
 Route::post('/jurnal/update',[Jurnal::class,'update'])->name('jurnal_update');
 Route::get('/jurnal/destroy/{id}',[Jurnal::class,'destroy'])->name('jurnal_delete');
 
-
+ 
+Route::get('/', [AuthController::class, 'showFormLogin'])->name('login');
+Route::get('login', [AuthController::class, 'showFormLogin'])->name('login');
+Route::post('login', [AuthController::class, 'login']);
+Route::get('register', [AuthController::class, 'showFormRegister'])->name('register');
+Route::post('register', [AuthController::class, 'register']);
+ 
+Route::group(['middleware' => 'auth'], function () {
+ 
+    Route::get('home', [HomeController::class, 'index'])->name('home');
+    Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+ 
+});

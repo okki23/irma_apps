@@ -8,7 +8,7 @@ use App\Models\PegawaiModel;
 
 class Pegawai extends Controller
 {
-    public function __construct(){
+    public function __construct(){ 
         $this->PegawaiModel = new PegawaiModel(); 
     }
    

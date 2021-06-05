@@ -30,10 +30,12 @@ class pengguna extends Controller
     public function store(Request $request)
     {  
         $data = [
+           
             'kode_pengguna' => Request()->kode_pengguna,
             'nama_pengguna' => Request()->nama_pengguna,
             'password' => Request()->password,
-            'hak_akses' => Request()->hak_akses,
+            'email' => Request()->email,  
+            'level' => Request()->level,
             'id_pegawai' => Request()->id_pegawai
         ];
 

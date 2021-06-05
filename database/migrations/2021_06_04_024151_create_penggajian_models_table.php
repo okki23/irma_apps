@@ -17,11 +17,11 @@ class CreatePenggajianModelsTable extends Migration
             $table->id();
             $table->string('no_slip');
             $table->string('tanggal_slip');
-            $table->string('id_pengguna');
-            $table->string('id_pegawai');
+            $table->string('id_pengguna'); 
+            $table->string('id_tunjangan');
+            $table->string('id_potongan');
             $table->string('no_rekap');
-            $table->integer('debet');
-            $table->integer('kredit'); 
+            $table->integer('jumlah_lembur');  
         });
     }
 
