@@ -94,15 +94,9 @@ Route::post('/jurnal/update',[Jurnal::class,'update'])->name('jurnal_update');
 Route::get('/jurnal/destroy/{id}',[Jurnal::class,'destroy'])->name('jurnal_delete');
 
  
-Route::get('/', [AuthController::class, 'showFormLogin'])->name('login');
+Route::get('/', [HomeController::class, 'index']);
 Route::get('login', [AuthController::class, 'showFormLogin'])->name('login');
 Route::post('login', [AuthController::class, 'login']);
 Route::get('register', [AuthController::class, 'showFormRegister'])->name('register');
 Route::post('register', [AuthController::class, 'register']);
  
-Route::group(['middleware' => 'auth'], function () {
- 
-    Route::get('home', [HomeController::class, 'index'])->name('home');
-    Route::get('logout', [AuthController::class, 'logout'])->name('logout');
- 
-});
