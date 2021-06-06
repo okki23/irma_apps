@@ -20,8 +20,7 @@ class CreatePenggajianModelsTable extends Migration
             $table->string('id_pengguna'); 
             $table->string('id_tunjangan');
             $table->string('id_potongan');
-            $table->string('no_rekap');
-            $table->integer('jumlah_lembur');  
+            $table->string('no_rekap'); 
         });
     }
 

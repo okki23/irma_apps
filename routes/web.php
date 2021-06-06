@@ -84,6 +84,7 @@ Route::get('/penggajian/edit/{id}',[Penggajian::class,'edit'])->name('penggajian
 Route::post('/penggajian/update',[Penggajian::class,'update'])->name('penggajian_update');
 Route::get('/penggajian/print/{id}',[Penggajian::class,'print'])->name('penggajian_print');
 Route::get('/penggajian/destroy/{id}',[Penggajian::class,'destroy'])->name('penggajian_delete');
+Route::get('/penggajian/detail/{id}',[Penggajian::class,'detail'])->name('penggajian_detail');
 
 Route::get('/jurnal',[Jurnal::class,'index'])->name('jurnal'); 
 Route::get('/jurnal/create',[Jurnal::class,'create'])->name('jurnal_create'); 

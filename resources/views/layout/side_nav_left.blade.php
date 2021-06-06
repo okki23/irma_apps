@@ -104,22 +104,7 @@
                     </p>
                 </a>
             </li>  
-            <li class="nav-item">
-                <a href="/cetak_rekap_absen" class="nav-link {{ request()->is('cetak_rekap_absen') ? 'active': '' }}">
-                  <i class="nav-icon fas fa-book"></i>
-                    <p>
-                        Cetak Rekap Absen
-                    </p>
-                </a>
-            </li> 
-            <li class="nav-item">
-                <a href="/cetak_slip_gaji" class="nav-link {{ request()->is('cetak_slip_gaji') ? 'active': '' }}">
-                  <i class="nav-icon fas fa-book"></i>
-                    <p>
-                        Cetak Slip Gaji
-                    </p>
-                </a>
-            </li> 
+           
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
